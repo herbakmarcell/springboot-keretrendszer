@@ -17,4 +17,10 @@ public class DrivingClassDao extends AbstractDao<DrivingClass> {
                 .setParameter("student", student)
                 .getResultList();
     }
+
+    public List<DrivingClass> getAllByTeacher(User teacher) {
+        return entityManager.createQuery("SELECT dc FROM DrivingClass dc WHERE dc.teacher= :teacher", DrivingClass.class)
+                .setParameter("teacher", teacher)
+                .getResultList();
+    }
 }

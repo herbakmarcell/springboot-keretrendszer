@@ -45,11 +45,17 @@ public class NavigationBar extends HorizontalLayout {
                     );
                     this.add(studentButton);
 
-                    Button addDriveLessonButton = new Button("Vezetés felvétele");
+                    Button addDriveLessonButton = new Button("Óra felvétele");
                     addDriveLessonButton.addClickListener(e ->
                             addDriveLessonButton.getUI().ifPresent(ui -> ui.navigate("/add-lesson"))
                     );
                     this.add(addDriveLessonButton);
+
+                    Button deleteDriveLessonButton = new Button("Óra törlése");
+                    deleteDriveLessonButton.addClickListener(e ->
+                            deleteDriveLessonButton.getUI().ifPresent(ui -> ui.navigate("/delete-lesson"))
+                    );
+                    this.add(deleteDriveLessonButton);
 
                     Button addExamButton = new Button("Vizsga felvétele");
                     addExamButton.addClickListener(e ->
