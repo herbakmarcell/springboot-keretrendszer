@@ -45,8 +45,8 @@ public class SecurityConfig extends VaadinWebSecurity {
                         .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 );
-
     }
+
 
     @Bean
     public AuthenticationSuccessHandler customLoginSuccessHandler() {

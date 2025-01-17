@@ -16,8 +16,8 @@ import java.util.List;
 
 @Service
 public class UserService {
-    private Dao<User> userDao;
-    private Dao<DrivingProfile> drivingProfileDao;
+    private UserDao userDao;
+    private DrivingProfileDao drivingProfileDao;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -27,13 +27,15 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void registerNewUser(String username, String rawPassword, String email, Role role) {
+    public void registerNewUser(String username, String rawPassword, String email, String firstName, String lastName, Role role) {
         String encryptedPassword = passwordEncoder.encode(rawPassword);
 
         User user = new User();
         user.setUsername(username);
         user.setPassword(encryptedPassword);
         user.setEmail(email);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
         user.setRole(role);
 
         userDao.add(user);
@@ -47,6 +49,22 @@ public class UserService {
 
     public List<User> getAll() {
         return userDao.getAll();
+    }
+
+    public String getUserFullName(String username) {
+        User user = userDao.getByUsername(username);
+        if (user == null) {
+            return null;
+        }
+        return user.getFirstName() + " " + user.getLastName();
+    }
+
+    public DrivingProfile getDrivingProfile(String username) {
+        User user = userDao.getByUsername(username);
+        if (user == null) {
+            return null;
+        }
+        return drivingProfileDao.getByUser(user);
     }
 
 

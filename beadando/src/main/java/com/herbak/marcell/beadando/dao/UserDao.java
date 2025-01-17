@@ -9,4 +9,10 @@ public class UserDao extends AbstractDao<User> {
     public UserDao() {
         super(User.class);
     }
+
+    public User getByUsername(String username) {
+        return entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                .setParameter("username", username)
+                .getSingleResult();
+    }
 }

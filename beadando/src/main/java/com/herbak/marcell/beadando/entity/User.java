@@ -15,6 +15,10 @@ public class User {
     private String password;
     @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
+    private String firstName;
+    @Column(nullable = false)
+    private String lastName;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -22,10 +26,12 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String email, Role role) {
+    public User(String username, String password, String email,String firstName, String lastName, Role role) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.role = role;
     }
 
@@ -67,5 +73,21 @@ public class User {
 
     public Role getRole() {
         return role;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
