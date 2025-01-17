@@ -1,7 +1,6 @@
 package com.herbak.marcell.beadando.frontend;
 
 import com.herbak.marcell.beadando.entity.DrivingExam;
-import com.herbak.marcell.beadando.entity.User;
 import com.herbak.marcell.beadando.service.ExamService;
 import com.herbak.marcell.beadando.service.UserService;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -23,7 +22,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
 import java.util.List;
 
 @Route("/select-exam")

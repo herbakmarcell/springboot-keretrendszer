@@ -1,7 +1,6 @@
 package com.herbak.marcell.beadando.frontend;
 
 import com.herbak.marcell.beadando.entity.DrivingClass;
-import com.herbak.marcell.beadando.entity.DrivingProfile;
 import com.herbak.marcell.beadando.service.LessonService;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;

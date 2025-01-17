@@ -1,7 +1,5 @@
 package com.herbak.marcell.beadando.frontend;
 
-import com.herbak.marcell.beadando.entity.DrivingClass;
-import com.herbak.marcell.beadando.entity.DrivingExam;
 import com.herbak.marcell.beadando.entity.User;
 import com.herbak.marcell.beadando.service.LessonService;
 import com.herbak.marcell.beadando.service.UserService;
