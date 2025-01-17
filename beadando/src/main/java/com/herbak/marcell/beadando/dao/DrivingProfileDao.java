@@ -2,6 +2,7 @@ package com.herbak.marcell.beadando.dao;
 
 import com.herbak.marcell.beadando.entity.DrivingProfile;
 import com.herbak.marcell.beadando.entity.User;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 @Repository

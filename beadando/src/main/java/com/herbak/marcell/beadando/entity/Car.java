@@ -14,6 +14,7 @@ public class Car {
 
     private String carName;
 
+    @Column(unique = true)
     private String licensePlate;
 
     @ManyToOne

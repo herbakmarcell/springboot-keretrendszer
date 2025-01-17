@@ -25,15 +25,75 @@ public class DrivingExam {
     private User teacher;
 
     @ManyToOne
-    @JoinColumn(name = "supervisor_id", nullable = false)
+    @JoinColumn(name = "supervisor_id", nullable = true)
     private User supervisor;
 
     @ManyToOne
-    @JoinColumn(name = "path_id", nullable = false)
+    @JoinColumn(name = "path_id", nullable = true)
     private DrivingPath path;
 
-    private int examErrorPoints;
+    private int examErrorPoints = 0;
 
-    private boolean examResult;
+    @Column(nullable = true)
+    private Boolean examResult = null;
 
+    public Long getExamId() {
+        return examId;
+    }
+
+    public Date getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
+    }
+
+    public User getStudent() {
+        return student;
+    }
+
+    public void setStudent(User student) {
+        this.student = student;
+    }
+
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
+    public User getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(User supervisor) {
+        this.supervisor = supervisor;
+    }
+
+    public DrivingPath getPath() {
+        return path;
+    }
+
+    public void setPath(DrivingPath path) {
+        this.path = path;
+    }
+
+    public int getExamErrorPoints() {
+        return examErrorPoints;
+    }
+
+    public void setExamErrorPoints(int examErrorPoints) {
+        this.examErrorPoints = examErrorPoints;
+    }
+
+    public Boolean getExamResult() {
+        return examResult;
+    }
+
+    public void setExamResult(Boolean examResult) {
+        this.examResult = examResult;
+    }
 }

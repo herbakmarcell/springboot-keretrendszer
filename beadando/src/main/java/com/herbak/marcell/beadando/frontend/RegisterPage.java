@@ -82,9 +82,11 @@ public class RegisterPage extends AppLayout implements BeforeEnterObserver {
         if (username != null && !username.isEmpty() && email != null && !email.isEmpty() && role != null) {
             userService.registerNewUser(username, password, email, firstName, lastName, role);
 
-            Notification.show("User created successfully!", 3000, Notification.Position.MIDDLE);
+            Notification.show("Felhasználó sikeresen létrehozva!", 3000, Notification.Position.MIDDLE);
+
+            submitButton.getUI().ifPresent(ui -> ui.navigate("/login"));
         } else {
-            Notification.show("Please fill in all fields", 3000, Notification.Position.MIDDLE);
+            Notification.show("Kérem töltsön ki minden mezőt!", 2000, Notification.Position.MIDDLE);
         }
     }
 }

@@ -8,4 +8,10 @@ public class DrivingPathDao extends AbstractDao<DrivingPath> {
     public DrivingPathDao() {
         super(DrivingPath.class);
     }
+
+    public DrivingPath getByName(String pathName) {
+        return entityManager.createQuery("SELECT dp FROM DrivingPath dp WHERE dp.pathName = :pathName", DrivingPath.class)
+                .setParameter("pathName", pathName)
+                .getSingleResult();
+    }
 }

@@ -22,4 +22,47 @@ public class DrivingClass {
 
     private String driveDescription;
 
+    public Long getId() {
+        return id;
+    }
+
+    public User getStudent() {
+        return student;
+    }
+
+    public void setStudent(User student) {
+        this.student = student;
+    }
+
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
+    public int getHoursDriven() {
+        return hoursDriven;
+    }
+
+    public void setHoursDriven(int hoursDriven) {
+        this.hoursDriven = hoursDriven;
+    }
+
+    public int getDistanceDriven() {
+        return distanceDriven;
+    }
+
+    public void setDistanceDriven(int distanceDriven) {
+        this.distanceDriven = distanceDriven;
+    }
+
+    public String getDriveDescription() {
+        return driveDescription;
+    }
+
+    public void setDriveDescription(String driveDescription) {
+        this.driveDescription = driveDescription;
+    }
 }

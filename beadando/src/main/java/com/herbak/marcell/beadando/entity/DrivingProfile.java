@@ -17,10 +17,6 @@ public class DrivingProfile {
     @JoinColumn(name = "car_id", nullable = true)
     private Car car = null;
 
-    private int hoursDriven = 0;
-
-    private int distanceDriven = 0;
-
     public Long getId() {
         return id;
     }
@@ -41,19 +37,4 @@ public class DrivingProfile {
         this.car = car;
     }
 
-    public int getHoursDriven() {
-        return hoursDriven;
-    }
-
-    public void setHoursDriven(int hoursDriven) {
-        this.hoursDriven = hoursDriven;
-    }
-
-    public int getDistanceDriven() {
-        return distanceDriven;
-    }
-
-    public void setDistanceDriven(int distanceDriven) {
-        this.distanceDriven = distanceDriven;
-    }
 }
