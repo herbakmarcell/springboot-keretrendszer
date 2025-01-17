@@ -69,6 +69,12 @@ public class NavigationBar extends HorizontalLayout {
                     );
                     this.add(addCarButton);
                 } else {
+                    Button examButton = new Button("Vizsgák");
+                    examButton.addClickListener(e ->
+                            examButton.getUI().ifPresent(ui -> ui.navigate("/exams"))
+                    );
+                    this.add(examButton);
+
                     Button addExamButton = new Button("Vizsga kiválasztása");
                     addExamButton.addClickListener(e ->
                             addExamButton.getUI().ifPresent(ui -> ui.navigate("/select-exam"))

@@ -6,7 +6,10 @@ import com.herbak.marcell.beadando.service.UserService;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -64,6 +67,8 @@ public class AddLessonPage extends AppLayout implements BeforeEnterObserver {
         NavigationBar navbar = new NavigationBar();
         addToNavbar(navbar);
         VerticalLayout content = new VerticalLayout();
+        content.setAlignItems(FlexComponent.Alignment.CENTER);
+        content.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
 
         String teacherUsername = ((UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         List<User> students = userService.getAllStudentsByTeacher(teacherUsername);
@@ -85,13 +90,16 @@ public class AddLessonPage extends AppLayout implements BeforeEnterObserver {
 
         submitButton = new Button("Óra felvétele");
         submitButton.addClickListener(e -> {
-
+            if(studentComboBox.getValue() == null || hoursField.getValue() == null || distanceField.getValue() == null || descField.getValue() == null){
+                Notification.show("Kérem töltsön ki minden mezőt!", 3000, Notification.Position.MIDDLE);
+                return;
+            }
             lessonService.addLesson(students.get(index), teacher, hoursField.getValue(), distanceField.getValue(), descField.getValue());
             submitButton.getUI().ifPresent(ui -> ui.navigate("/"));
         });
 
 
-        content.add(studentComboBox, idSpan, hoursField, distanceField, descField, submitButton);
+        content.add(new H2("Óra felvétele"),studentComboBox, idSpan, hoursField, distanceField, descField, submitButton);
         setContent(content);
 
     }

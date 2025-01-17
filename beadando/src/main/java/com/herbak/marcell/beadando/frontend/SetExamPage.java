@@ -11,6 +11,7 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -53,7 +54,7 @@ public class SetExamPage extends AppLayout implements BeforeEnterObserver {
     Span dateSpan;
 
     ComboBox<String> pathComboBox;
-    TextField errorField;
+    IntegerField errorField;
     ComboBox<String> resultComboBox;
 
 
@@ -87,7 +88,7 @@ public class SetExamPage extends AppLayout implements BeforeEnterObserver {
 
                 pathComboBox = new ComboBox<>("Vizsga útvonala");
                 pathComboBox.setItems(examService.getDrivingPaths().stream().map(DrivingPath::getPathName).toList());
-                errorField = new TextField("Hibapontok száma");
+                errorField = new IntegerField("Hibapontok száma");
                 resultComboBox = new ComboBox<>("Eredmény");
                 resultComboBox.setItems("Sikeres", "Sikertelen");
 
@@ -96,7 +97,7 @@ public class SetExamPage extends AppLayout implements BeforeEnterObserver {
                     if (examComboBox.getValue() == null){
                         return;
                     }
-                    examService.addResultToExam(examComboBox.getValue(),pathComboBox.getValue(), Integer.parseInt(errorField.getValue()), resultComboBox.getValue().equals("Sikeres"));
+                    examService.addResultToExam(examComboBox.getValue(),pathComboBox.getValue(), errorField.getValue(), resultComboBox.getValue().equals("Sikeres"));
                     Notification.show("Vizsga eredmény sikeresen beírva!", 3000, Notification.Position.MIDDLE);
                     submitButton.getUI().ifPresent(ui -> ui.navigate("/"));
                 });
